@@ -69,8 +69,8 @@ def bound_MIMO_wi(w_start, w_end, vec, G, Gp, steps):
     for k in range(len(w)):
         w_i = w[k]
         # Calculate all perturbations at a specific frequency
-        Gp_i = [np.linalg.svd((Gp(w_i * 1j, vec, i) - G(w_i * 1j))
-                * np.linalg.pinv(G(w_i * 1j)), compute_uv=False)[0]
+        Gp_i = [np.linalg.svd((Gp(w_i * 1j, vec, i) - G(w_i * 1j)) *
+                np.linalg.pinv(G(w_i * 1j)), compute_uv=False)[0]
                 for i in range(vec.shape[0])]
         # Calculate the maximum of the maximum singular values
         # at each frequency

@@ -56,8 +56,8 @@ def plot_slope(sys, *args, **dict):
     freqs = []
 
     for x in range(end - 1):  # Calculate the slope incrementally
-        slope.append((np.log(mag[x + 1]) - np.log(mag[x]))
-                     / (np.log(omega[x + 1]) - np.log(omega[x])))
+        slope.append((np.log(mag[x + 1]) - np.log(mag[x])) /
+                     (np.log(omega[x + 1]) - np.log(omega[x])))
         freqs.append((omega[x + 1] + omega[x]) / 2)
 
     # w = cross_over_freq(sys)
@@ -132,7 +132,8 @@ def weight_function(option, w_B, M=2, A=0):
     if option == 2.72:
         wp = cn.tf([1, M * w_B], [M, M * A * w_B])
     elif option == 2.73:
-        wp = cn.tf([1, 2 * (M ** 0.5) * w_B, M * (w_B ** 2)], [M, w_B * M * 2 * (A ** 0.5), A * M * (w_B**2)])
+        wp = cn.tf([1, 2 * (M ** 0.5) * w_B, M * (w_B ** 2)],
+                   [M, w_B * M * 2 * (A ** 0.5), A * M * (w_B**2)])
     elif option == 5.37:
         wp = cn.tf([1], [M]) + cn.tf([1, 0], [0, w_B])
     elif option == 5.45:

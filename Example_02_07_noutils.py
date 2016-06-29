@@ -60,4 +60,3 @@ print("GM is = " + str(numpy.round(1/AR_180, 1)))
 print("PM is = " + str(numpy.round(PM, 1)))
 print("Ms is = " + str(Ms))
 print("Mt is = " + str(Mt))
-
